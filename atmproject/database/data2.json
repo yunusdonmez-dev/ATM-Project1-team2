@@ -1,0 +1,22 @@
+{
+    "customers": [
+        {
+            "id": "1",
+            "name": "Yunus",
+            "password": "1234",
+            "balance": "300"
+        },
+        {
+            "id": "2",
+            "name": "ali",
+            "password": "naci",
+            "balance": "500"
+        },
+        {
+            "id": 3,
+            "name": "yakup",
+            "age": 32,
+            "Tax no": 8986589
+        }
+    ]
+}
