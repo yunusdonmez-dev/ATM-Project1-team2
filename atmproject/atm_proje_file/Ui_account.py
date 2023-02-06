@@ -24,7 +24,7 @@ class Ui_accountScreen(object):
         self.pushButton_8.setStyleSheet("background-color: rgb(230, 230, 230);")
         self.pushButton_8.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\yunus\\OneDrive\\Desktop\\atmproject\\deneme\\../../gümüst/icons/icns/money.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\Users\yunus\OneDrive\Desktop\python ogreniyorum\ATM-Project\atmproject\atm_proje_file\icns\money.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_8.setIcon(icon)
         self.pushButton_8.setIconSize(QtCore.QSize(50, 100))
         self.pushButton_8.setObjectName("pushButton_8")

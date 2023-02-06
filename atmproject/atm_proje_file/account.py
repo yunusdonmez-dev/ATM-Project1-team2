@@ -104,7 +104,7 @@ class InsertPage(QMainWindow):
                 if i["id"] == user:
                     self.insert_money.balance2_label.setText(i["balance"])
         # with open(r"C:\Users\yunus\OneDrive\Desktop\python ogreniyorum\ATM-Project\atmproject\atm_proje_file\data2.json",'a') as f:
-        #     data = json.load(f)
+        #     data = json.dump(f)
         #     users = data["customers"]
         #     for i in users:
         #         if i["id"] == user:
