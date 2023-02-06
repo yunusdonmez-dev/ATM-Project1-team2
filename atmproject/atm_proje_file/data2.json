@@ -13,10 +13,16 @@
             "balance": "500"
         },
         {
-            "id": 3,
+            "id": "3",
             "name": "yakup",
-            "age": 32,
-            "Tax no": 8986589
+            "password": "32",
+            "balance": "8986589"
+        },
+        {
+            "id": "4",
+            "name": "Tuba",
+            "password": "azra",
+            "balance": "99999"
         }
     ]
 }

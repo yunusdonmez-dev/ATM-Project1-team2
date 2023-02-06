@@ -27,8 +27,9 @@ class LoginPage(QMainWindow):
         self.password = self.loginform.password_edit.text()
         user = self.id
         password = self.password
+        fileloc = os.getcwd()
         
-        with open(r"C:\Users\yunus\OneDrive\Desktop\atmproject\database\data2.json") as f:
+        with open(r"C:\Users\yunus\OneDrive\Desktop\python ogreniyorum\ATM-Project\atmproject\atm_proje_file\data2.json") as f:
             data = json.load(f)
             users = data["customers"]
             for i in users:
@@ -96,20 +97,20 @@ class InsertPage(QMainWindow):
         self.insert_money.setupUi(self)
         self.insert_money.return2_button.clicked.connect(self.donus)
 
-        with open(r"C:\Users\yunus\OneDrive\Desktop\atmproject\database\data2.json") as f:
+        with open(r"C:\Users\yunus\OneDrive\Desktop\python ogreniyorum\ATM-Project\atmproject\atm_proje_file\data2.json") as f:
             data = json.load(f)
             users = data["customers"]
             for i in users:
                 if i["id"] == user:
                     self.insert_money.balance2_label.setText(i["balance"])
-        with open(r"C:\Users\yunus\OneDrive\Desktop\atmproject\database\data2.json",'a') as f:
-            data = json.load(f)
-            users = data["customers"]
-            for i in users:
-                if i["id"] == user:
-                    in_money = self.insert_money.insert_edit.text()
+        # with open(r"C:\Users\yunus\OneDrive\Desktop\python ogreniyorum\ATM-Project\atmproject\atm_proje_file\data2.json",'a') as f:
+        #     data = json.load(f)
+        #     users = data["customers"]
+        #     for i in users:
+        #         if i["id"] == user:
+        #             in_money = self.insert_money.insert_edit.text()
                     
-                    i["balance"] = "balance degisti"
+        #             i["balance"] = "balance degisti"
 
     def donus(self):
         self.openaccountpage = AccountPage()
