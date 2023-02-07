@@ -5,6 +5,10 @@ from Ui_insert import Ui_insertScreen
 from Ui_withdraw import Ui_withdrawScreen
 from Ui_statament import Ui_statementScreen
 from Ui_login import Ui_loginScreen
+from ui_loginAdmin import Ui_loginAdmin   # for admin
+from ui_accountAdmin import Ui_accountAdmin # for admin
+
+
 import json
 import os
 
@@ -18,8 +22,16 @@ class LoginPage(QMainWindow):
         self.loginform = Ui_loginScreen()       
         self.loginform.setupUi(self)
         self.openaccountpage = AccountPage()
+        self.loginform.enter_button_2.clicked.connect(self.returnLoginAdmin)
         self.loginform.enter_button.clicked.connect(self.enter)
        
+
+
+    def returnLoginAdmin(self):
+        self.loginReturnForm= LoginAdminPage()
+        self.hide()
+        self.loginReturnForm.show()
+
 
     def enter(self):
         global user,password
@@ -138,4 +150,48 @@ class StatementPage(QMainWindow):
         self.close()
         self.openaccountpage.show()
         
+
+
+# Admin Screen
+
+class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (QWidget) sinifin alt sinifi yapiyoruz.
+    def __init__(self) -> None:  
+        super().__init__()
+        self.loginForm= Ui_loginAdmin()      #bu ve alttaki kod ile nesne yaratip sonra ana modulunu(self ile) cagiriyoruz.
+        self.loginForm.setupUi(self)
+        self.loginForm.labelErrorMessage.hide()
+        self.loginForm.pushButtonLogin.clicked.connect(self.AccountAdminOpen) # login tiklanirsa AccountOpen modulunu calistiracak.
+        
+     
+   
+    def AccountAdminOpen(self):
+
+        user_name = self.loginForm.lineEditUser.text()
+        user_pass = self.loginForm.lineEditPassword.text()  
+        
+        
+        if user_name =="Yakup" and user_pass =="1234":   # bu gecici olarak yazilan bir kod. daha sonra data dan alacagiz.
+            self.accountForm= AccounAdminPage()
+            self.close()   
+            self.accountForm.show()   # simdi login de sartlari soracak eger dogruysa diger arayuzu burada gosterecektir.
             
+        else :
+            self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
+            self.loginForm.labelErrorMessage.show()
+                
+        
+    
+class AccounAdminPage(QWidget):  
+    def __init__(self) -> None:
+        super().__init__()
+        
+        # ornek ve ana modul calistiriliyor
+        self.accounderForm= Ui_accountAdmin()
+        self.accounderForm.setupUi(self)
+        self.accounderForm.pushButtonReturn.clicked.connect(self.returnLoginAdmin)
+
+
+    def returnLoginAdmin(self):
+        self.loginReturnForm= LoginAdminPage()
+        self.hide()
+        self.loginReturnForm.show()
