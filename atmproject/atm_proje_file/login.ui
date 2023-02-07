@@ -194,26 +194,29 @@ border-color: rgb(0, 0, 128);</string>
      <string>  PASSWORD</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="exit_button">
+   <widget class="QPushButton" name="enter_button_2">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>100</y>
-      <width>91</width>
-      <height>81</height>
+      <x>490</x>
+      <y>150</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(179, 179, 179);</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../../gümüst/icons/icns/exit 2.png</normaloff>
-      <normalon>../../gümüst/icons/icns/exit 2.png</normalon>../../../gümüst/icons/icns/exit 2.png</iconset>
+      <normaloff>../../../gümüst/icons/icns/Küçük images (1) .png</normaloff>
+      <normalon>../../gümüst/icons/icns/Küçük images (1) .png</normalon>../../../gümüst/icons/icns/Küçük images (1) .png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>80</width>
+      <width>100</width>
       <height>100</height>
      </size>
     </property>
@@ -225,7 +228,7 @@ border-color: rgb(0, 0, 128);</string>
      <x>0</x>
      <y>0</y>
      <width>602</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
