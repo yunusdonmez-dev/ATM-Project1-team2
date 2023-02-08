@@ -45,7 +45,7 @@ class LoginPage(QMainWindow):
             data = json.load(f)
             users = data["customers"]
             for i in users:
-                if i["id"] == self.id:
+                if str(i["id"]) == self.id:
                     if i["password"] == self.password:
                         self.hide()
                         self.openaccountpage.show()
@@ -73,8 +73,7 @@ class AccountPage(QMainWindow):
         self.open_insert_page = InsertPage()
         self.hide()
         self.open_insert_page.show()
-            
-        print(user)
+        
 
 
 
@@ -108,21 +107,33 @@ class InsertPage(QMainWindow):
         
         self.insert_money.setupUi(self)
         self.insert_money.return2_button.clicked.connect(self.donus)
-        fileloc = os.getcwd()
-        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json") as f:
-            data = json.load(f)
-            users = data["customers"]
-            for i in users:
-                if i["id"] == user:
-                    self.insert_money.balance2_label.setText(i["balance"])
-        # with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json",'a') as f:
-        #     data = json.dump(f)
-        #     users = data["customers"]
-        #     for i in users:
-        #         if i["id"] == user:
-        #             in_money = self.insert_money.insert_edit.text()
+        
+        
+    
+        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+            self.data = json.load(f)
+            self.users = self.data["customers"]
+            for self.i in self.users:
+                if str(self.i["id"]) == user:
+                    self.insert_money.balance2_label.setNum(self.i["balance"])
+                    self.insert_money.enter2_button.clicked.connect(self.add_money)
                     
-        #             i["balance"] = "balance degisti"
+        
+
+    def add_money(self):
+        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+            self.data = json.load(f)
+            self.users = self.data["customers"]
+            self.data["customers"][self.i["id"]-1]["balance"] += int(self.insert_money.insert_edit.text())
+            self.insert_money.balance2_label.setNum(self.data["customers"][self.i["id"]-1]["balance"])    
+        
+        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+            json.dump(self.data , f, indent=4)
+
+            
+
+
+        
 
     def donus(self):
         self.openaccountpage = AccountPage()
@@ -135,6 +146,31 @@ class WithdrawPage(QMainWindow):
         self.withdraw_money = Ui_withdrawScreen()
         self.withdraw_money.setupUi(self)
         self.withdraw_money.return3_button.clicked.connect(self.donus)
+
+        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+            self.data = json.load(f)
+            self.users = self.data["customers"]
+            for self.i in self.users:
+                if str(self.i["id"]) == user:
+                    self.withdraw_money.balance3_label.setNum(self.i["balance"])
+                    # self.withdraw_money.balance3_label.setNum(self.data["customers"][self.i["id"]-1]["balance"])
+                    self.withdraw_money.enter_button.clicked.connect(self.take_money)
+    def take_money(self):
+
+        if int(self.withdraw_money.withdraw_edit.text()) <= self.i["balance"] :
+            with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+                self.data = json.load(f)
+                self.users = self.data["customers"]
+                self.data["customers"][self.i["id"]-1]["balance"] -= int(self.withdraw_money.withdraw_edit.text())
+                self.withdraw_money.balance3_label.setNum(self.data["customers"][self.i["id"]-1]["balance"]) 
+            with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+                json.dump(self.data , f, indent=4)
+
+                        
+
+                    
+
+
     def donus(self):
         self.openaccountpage = AccountPage()
         self.close()
@@ -169,19 +205,29 @@ class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (Q
         user_name = self.loginForm.lineEditUser.text()
         user_pass = self.loginForm.lineEditPassword.text()  
         
-        
-        if user_name =="Yakup" and user_pass =="1234":   # bu gecici olarak yazilan bir kod. daha sonra data dan alacagiz.
-            self.accountForm= AccounAdminPage()
-            self.close()   
-            self.accountForm.show()   # simdi login de sartlari soracak eger dogruysa diger arayuzu burada gosterecektir.
+        fileloc = os.getcwd()
+        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data.json") as f:
+            data = json.load(f)
+            users = data["bank"]
             
-        else :
-            self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
-            self.loginForm.labelErrorMessage.show()
+            for i in users:
+                if i["name"] == user_name:
+                    if i["password"] == user_pass:
+                        self.hide()
+                        # self.openaccountpage.show()   # bu gecici olarak yazilan bir kod. daha sonra data dan alacagiz.
+                        self.accountForm= AccounAdminPage()
+                        self.close()   
+                        self.accountForm.show()   # simdi login de sartlari soracak eger dogruysa diger arayuzu burada gosterecektir.
+            
+                    else :
+                        self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
+                        self.loginForm.labelErrorMessage.show()
                 
         
     
 class AccounAdminPage(QWidget):  
+    fileloc = os.getcwd()
+    print(fileloc)
     def __init__(self) -> None:
         super().__init__()
         
@@ -189,6 +235,30 @@ class AccounAdminPage(QWidget):
         self.accounderForm= Ui_accountAdmin()
         self.accounderForm.setupUi(self)
         self.accounderForm.pushButtonReturn.clicked.connect(self.returnLoginAdmin)
+        self.accounderForm.pushButtonSuffix.clicked.connect(self.write_json)
+        
+    def write_json(self):
+        fileloc = os.getcwd()
+        
+
+        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json") as json_file:
+            data = json.load(json_file)
+            temp = data["customers"]
+            y = {
+            "id": len(temp)+1,
+            "name": self.accounderForm.lineEditName.text(),
+            "surname":self.accounderForm.lineEditSurname.text(),
+            "balance":int(self.accounderForm.lineEditBalans.text()),
+            "e-mail" : self.accounderForm.lineEditEmail.text(),
+            "tax-number" :int(self.accounderForm.lineEditTax.text()),
+            "password" : self.accounderForm.lineEditPassword.text()            
+            }
+            temp.append(y)
+
+        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+            json.dump(data , f, indent=4)
+                
+
 
 
     def returnLoginAdmin(self):

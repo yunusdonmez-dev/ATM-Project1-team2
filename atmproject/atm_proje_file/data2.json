@@ -1,34 +1,70 @@
 {
     "customers": [
         {
-            "id": "1",
+            "id": 1,
             "name": "Yunus",
             "password": "1234",
-            "balance": "300"
+            "balance": 5
         },
         {
-            "id": "2",
+            "id": 2,
             "name": "ali",
             "password": "naci",
-            "balance": "500"
+            "balance": 500
         },
         {
-            "id": "3",
+            "id": 3,
             "name": "yakup",
             "password": "32",
-            "balance": "8986589"
+            "balance": 450
         },
         {
-            "id": "4",
+            "id": 4,
             "name": "Tuba",
             "password": "azra",
-            "balance": "99999"
+            "balance": 99999
         },
         {
             "id": 5,
             "name": "Tuba",
             "password": "azra",
-            "balance": "99999"
+            "balance": 99999
+        },
+        {
+            "id": 6,
+            "name": "furkan",
+            "surname": "yigit",
+            "balance": 5000,
+            "e-mail": "frkygt@gmail.com",
+            "tax-number": 656254565,
+            "password": "lk"
+        },
+        {
+            "id": 7,
+            "name": "Azra",
+            "surname": "gumusses",
+            "balance": 10000,
+            "e-mail": "azragmss@gmail.com",
+            "tax-number": 2562625,
+            "password": "tuba"
+        },
+        {
+            "id": 8,
+            "name": "naci",
+            "surname": "c",
+            "balance": 2000,
+            "e-mail": "ncc@gmail.com",
+            "tax-number": 46555,
+            "password": "ali"
+        },
+        {
+            "id": 9,
+            "name": "ayse",
+            "surname": "Gurses",
+            "balance": 32633,
+            "e-mail": "aysegrss@gmail.com",
+            "tax-number": 845286452,
+            "password": "qwert"
         }
     ]
 }
