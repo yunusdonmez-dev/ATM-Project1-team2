@@ -1,0 +1,34 @@
+{
+    "customers": [
+        {
+            "id": "1",
+            "name": "Yunus",
+            "password": "1234",
+            "balance": "300"
+        },
+        {
+            "id": "2",
+            "name": "ali",
+            "password": "naci",
+            "balance": "500"
+        },
+        {
+            "id": "3",
+            "name": "yakup",
+            "password": "32",
+            "balance": "8986589"
+        },
+        {
+            "id": "4",
+            "name": "Tuba",
+            "password": "azra",
+            "balance": "99999"
+        },
+        {
+            "id": 5,
+            "name": "Tuba",
+            "password": "azra",
+            "balance": "99999"
+        }
+    ]
+}
