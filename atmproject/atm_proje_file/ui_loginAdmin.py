@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_loginAdmin(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
-        Login.resize(486, 310)
+        Login.resize(486, 320)
         self.lineEditUser = QtWidgets.QLineEdit(Login)
         self.lineEditUser.setGeometry(QtCore.QRect(200, 60, 201, 31))
         self.lineEditUser.setObjectName("lineEditUser")
@@ -27,12 +27,25 @@ class Ui_loginAdmin(object):
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
         font.setWeight(9)
         self.pushButtonLogin.setFont(font)
         self.pushButtonLogin.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";")
         self.pushButtonLogin.setObjectName("pushButtonLogin")
+
+        self.pushButtonLogin2 = QtWidgets.QPushButton(Login)
+        self.pushButtonLogin2.setGeometry(QtCore.QRect(150, 260, 181, 51))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.pushButtonLogin2.setFont(font)
+        self.pushButtonLogin2.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";")
+        self.pushButtonLogin2.setObjectName("pushButtonLogin2")
+
         self.labelErrorMessage = QtWidgets.QLabel(Login)
         self.labelErrorMessage.setGeometry(QtCore.QRect(70, 270, 351, 20))
         font = QtGui.QFont()
@@ -70,10 +83,10 @@ class Ui_loginAdmin(object):
         Login.setWindowTitle(_translate("Login", "Form"))
         self.pushButtonLogin.setText(_translate("Login", "Login"))
         self.labelErrorMessage.setText(_translate("Login", "TextLabel"))
-        self.labelHead.setText(_translate("Login", "       Bank Login Pagina"))
+        self.labelHead.setText(_translate("Login", "       Bank Login Page"))
         self.labelUserName.setText(_translate("Login", "Username:"))
-        self.labelUserPassword.setText(_translate("Login", "Use rpassword :"))
-
+        self.labelUserPassword.setText(_translate("Login", "User Password :"))
+        self.pushButtonLogin2.setText(_translate("Login", "Return"))
 
 if __name__ == "__main__":
     import sys

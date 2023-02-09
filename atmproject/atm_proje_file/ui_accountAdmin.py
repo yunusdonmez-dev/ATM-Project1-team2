@@ -127,6 +127,11 @@ class Ui_accountAdmin(object):
         self.verticalLayout_2.addWidget(self.tableWidget)
         self.horizontalLayout.addLayout(self.verticalLayout_2)
 
+        self.label = QtWidgets.QLabel(Accounder)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QtCore.QRect(2, 430, 161, 31))
+        self.label.setText("Password must be at least 6 digits")
+
         self.retranslateUi(Accounder)
         QtCore.QMetaObject.connectSlotsByName(Accounder)
 

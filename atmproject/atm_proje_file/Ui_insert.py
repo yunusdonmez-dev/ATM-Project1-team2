@@ -64,6 +64,14 @@ class Ui_insertScreen(object):
         self.balance2_label.setText("")
         self.balance2_label.setObjectName("balance2_label")
         self.balance2_label.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.balance3_label = QtWidgets.QLabel(self.centralwidget)
+        self.balance3_label.setGeometry(QtCore.QRect(220, 150, 161, 31))
+        self.balance3_label.setStyleSheet("background-color: rgb(204, 204, 204);")
+        self.balance3_label.setText("")
+        self.balance3_label.setObjectName("balance2_label")
+        self.balance3_label.setAlignment(QtCore.Qt.AlignCenter)
+
         self.insert_edit = QtWidgets.QLineEdit(self.centralwidget)
         self.insert_edit.setGeometry(QtCore.QRect(220, 100, 161, 31))
         self.insert_edit.setStyleSheet("background-color: rgb(204, 204, 204);")
