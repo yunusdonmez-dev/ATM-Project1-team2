@@ -326,8 +326,29 @@ class AccounAdminPage(QWidget):
         self.accounderForm.setupUi(self)
         self.accounderForm.pushButtonReturn.clicked.connect(self.returnLoginAdmin)
         self.accounderForm.pushButtonSuffix.clicked.connect(self.write_json)
+        # self.accounderForm.pushButtonSuffix.clicked.connect(self.accoundCread)
         self.accounderForm.label.hide()
-      
+
+
+    def accoundCread(self):
+        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+            data = json.load(f)
+            heades = data["customers"]
+            row_index = 0
+            for i in heades:
+            #     for k in i :  # k benim sozlukteki key dir. i ise listedeki sozluktur.
+                self.accounderForm.tableWidget.setItem(0,0,QTableWidgetItem(str(len(heades)+1)))  # i[k] bana sozlukteki key degerini veriyor.
+                self.accounderForm.tableWidget.setItem(0,1,QTableWidgetItem(i["name"]))  # i[k] bana sozlukteki key degerini veriyor.
+                self.accounderForm.tableWidget.setItem(0,2,QTableWidgetItem(i["surname"]))  # i[k] bana sozlukteki key degerini veriyor.
+                self.accounderForm.tableWidget.setItem(0,5,QTableWidgetItem(str(i["balance"])))  # i[k] bana sozlukteki key degerini veriyor.
+                self.accounderForm.tableWidget.setItem(0,3,QTableWidgetItem(i["e-mail"]))  # i[k] bana sozlukteki key degerini veriyor.
+                self.accounderForm.tableWidget.setItem(0,4,QTableWidgetItem(str(i["tax-number"])))  # i[k] bana sozlukteki key degerini veriyor.
+                self.accounderForm.tableWidget.setItem(0,6,QTableWidgetItem(i["password"]))  # i[k] bana sozlukteki key degerini veriyor.
+                
+
+
+
+
     def write_json(self):
         
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as json_file:
@@ -353,6 +374,9 @@ class AccounAdminPage(QWidget):
             
             self.accounderForm.label.setText("Account is created succesfully !")
             self.accounderForm.label.show()
+            self.accoundCread()
+
+            
         except :
             print("password must be at least 6 digits")
             self.accounderForm.label.show()

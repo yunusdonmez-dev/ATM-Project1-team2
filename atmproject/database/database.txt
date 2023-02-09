@@ -1,5 +1,0 @@
-TeamProject
-
-
-ali,1,yunusdonmeznl@gmail.com,sifre1
-Furkan,1,furkidonmeznl@gmail.com,sifre2
