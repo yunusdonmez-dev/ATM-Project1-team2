@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_accountScreen(object):
     def setupUi(self, accountScreen):
         accountScreen.setObjectName("accountScreen")
-        accountScreen.resize(551, 516)
+        accountScreen.resize(500, 450)
         accountScreen.setStyleSheet("background-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));")
         accountScreen.setIconSize(QtCore.QSize(500, 500))
         self.centralwidget = QtWidgets.QWidget(accountScreen)
@@ -84,14 +84,16 @@ class Ui_accountScreen(object):
         self.statement_button.setStyleSheet("background-color: rgb(230, 230, 230);")
         self.statement_button.setObjectName("statement_button")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(150, 10, 201, 51))
+        self.lineEdit.setGeometry(QtCore.QRect(150, 10, 200, 40))
         self.lineEdit.setStyleSheet("background-color: rgb(204, 204, 204);\n"
-"font: 36pt \".AppleSystemUIFont\";")
+"font: 24pt \".AppleSystemUIFont\";")
         self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(120, 80, 261, 21))
         self.lineEdit_2.setStyleSheet("background-color: rgb(230, 230, 230);")
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
         accountScreen.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(accountScreen)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 551, 24))

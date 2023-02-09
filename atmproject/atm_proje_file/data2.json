@@ -1,88 +1,81 @@
 {
     "customers": [
         {
-            "id": 1,
-            "name": "Yunus",
-            "password": "1234",
-            "balance": 5
-        },
-        {
-            "id": 2,
-            "name": "ali",
-            "password": "naci",
-            "balance": 500
-        },
-        {
-            "id": 3,
-            "name": "yakup",
-            "password": "32",
-            "balance": 450
-        },
-        {
-            "id": 4,
-            "name": "Tuba",
-            "password": "azra",
-            "balance": 99999
-        },
-        {
-            "id": 5,
-            "name": "Tuba",
-            "password": "azra",
-            "balance": 99999
-        },
-        {
-            "id": 6,
-            "name": "furkan",
-            "surname": "yigit",
-            "balance": 1600,
-            "e-mail": "frkygt@gmail.com",
-            "tax-number": 656254565,
-            "password": "lk",
-            "login_log": ""
-        },
-        {
-            "id": 7,
-            "name": "Azra",
-            "surname": "gumusses",
-            "balance": 10000,
-            "e-mail": "azragmss@gmail.com",
-            "tax-number": 2562625,
-            "password": "tuba",
-            "login_log": ""
-        },
-        {
-            "id": 8,
-            "name": "naci",
-            "surname": "c",
-            "balance": 2000,
-            "e-mail": "ncc@gmail.com",
-            "tax-number": 46555,
-            "password": "ali",
-            "login_log": ""
-        },
-        {
-            "id": 9,
-            "name": "ayse",
-            "surname": "Gurses",
-            "balance": 2493,
-            "e-mail": "aysegrss@gmail.com",
-            "tax-number": 845286452,
-            "password": "qwert",
-            "login_log": "Customer 9 logged in at 2023-02-08 16:58:17.934838-Customer 9 logged in at 2023-02-08 17:14:13.406836-\nCustomer 9 logged in at 2023-02-08 17:15:52.839812-Customer 9 logged in at 2023-02-08 17:25:34.819494-Customer 9 logged in at 2023-02-08 17:26:26.288300-Customer 9 logged in at 2023-02-08 17:28:05.077815-Customer 9 logged in at 2023-02-08 17:28:45.629889-",
-            "registered": "",
-            "money_activities": ""
-        },
-        {
-            "id": 10,
+            "id": 100001,
             "name": "kemal",
             "surname": "gunes",
-            "balance": -121600,
+            "balance": 78400,
             "e-mail": "kmlgns@gmail.com",
             "tax-number": 525566,
             "password": "123",
-            "login_log": "Customer 10 logged in at 2023-02-08 17:48:45.846867-Customer 10 logged in at 2023-02-08 17:53:11.106592-Customer 10 logged in at 2023-02-08 17:57:32.919362-Customer 10 logged in at 2023-02-08 18:00:02.702148-Customer 10 logged in at 2023-02-08 18:01:37.612210-Customer 10 logged in at 2023-02-08 18:15:01.373410-",
-            "money_activities": "Customer 10 inserted 500 $ at 2023-02-08 17:49:03.942442-Customer 10 withrawed 1000 $ at 2023-02-08 17:49:17.920868-Customer 10 withrawed 3000 $ at 2023-02-08 17:49:24.849397-Customer 10 inserted 1000 $ at 2023-02-08 17:58:04.348547-Customer 10 withrawed 300 $ at 2023-02-08 17:58:19.577030-Customer 10 inserted 100000 $ at 2023-02-08 18:02:04.165753-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:07.382138-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:08.584456-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:08.812315-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:09.022196-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:09.214093-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:09.412973-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:09.594875-Customer 10 withrawed 1000 $ at 2023-02-08 18:03:09.780029-Customer 10 withrawed 100000 $ at 2023-02-08 18:03:15.308732-Customer 10 inserted 100000 $ at 2023-02-08 18:04:40.847908-Customer 10 withrawed 100 $ at 2023-02-08 18:04:47.785379-Customer 10 withrawed 100 $ at 2023-02-08 18:04:50.626855-Customer 10 withrawed 100 $ at 2023-02-08 18:04:51.059592-Customer 10 withrawed 100 $ at 2023-02-08 18:04:51.259477-Customer 10 withrawed 100 $ at 2023-02-08 18:04:51.479351-Customer 10 withrawed 100 $ at 2023-02-08 18:04:53.066413-Customer 10 withrawed 100 $ at 2023-02-08 18:04:53.548140-Customer 10 withrawed 100 $ at 2023-02-08 18:04:53.751018-Customer 10 withrawed 100 $ at 2023-02-08 18:04:53.950207-Customer 10 withrawed 10000 $ at 2023-02-08 18:04:56.230749-Customer 10 withrawed 10000 $ at 2023-02-08 18:04:56.743485-Customer 10 withrawed 1300 $ at 2023-02-08 18:05:12.504349-Customer 10 withrawed 80000 $ at 2023-02-08 18:05:20.081337-Customer 10 inserted 100000 $ at 2023-02-08 18:15:14.191588-Customer 10 withrawed 100 $ at 2023-02-08 18:15:21.261657-Customer 10 withrawed 100 $ at 2023-02-08 18:15:21.575481-Customer 10 withrawed 100 $ at 2023-02-08 18:15:21.822318-Customer 10 withrawed 100 $ at 2023-02-08 18:15:22.032202-Customer 10 withrawed 100 $ at 2023-02-08 18:15:22.456666-Customer 10 withrawed 100 $ at 2023-02-08 18:15:22.889440-Customer 10 withrawed 100 $ at 2023-02-08 18:15:23.146275-Customer 10 withrawed 100 $ at 2023-02-08 18:15:23.406187-Customer 10 withrawed 100 $ at 2023-02-08 18:15:23.638248-Customer 10 withrawed 100 $ at 2023-02-08 18:15:23.874385-Customer 10 withrawed 100 $ at 2023-02-08 18:15:24.111247-Customer 10 withrawed 100 $ at 2023-02-08 18:15:24.345134-Customer 10 withrawed 100 $ at 2023-02-08 18:15:24.582000-Customer 10 withrawed 50000 $ at 2023-02-08 18:15:32.021447-Customer 10 withrawed 100 $ at 2023-02-08 18:15:52.007520-Customer 10 withrawed 100 $ at 2023-02-08 18:15:52.533240-Customer 10 withrawed 100 $ at 2023-02-08 18:15:53.261445-Customer 10 withrawed 40000 $ at 2023-02-08 18:15:59.649818-Customer 10 withrawed 40000 $ at 2023-02-08 18:16:02.644181-Customer 10 withrawed 40000 $ at 2023-02-08 18:16:03.421460-Customer 10 withrawed 40000 $ at 2023-02-08 18:16:03.758267-",
+            "login_log": [],
+            "money_activities": [],
             "register_log": "Customer 10 registered at 2023-02-08 17:39:26.228537"
+        },
+        {
+            "id": 100002,
+            "name": "mehmet",
+            "surname": "kaya",
+            "balance": 9384,
+            "e-mail": "mmtky@gmail.com",
+            "tax-number": 984656,
+            "password": "123",
+            "login_log": [],
+            "money_activities": [],
+            "register_log": "Customer 11 registered at 2023-02-08 22:24:10.930721"
+        },
+        {
+            "id": 100003,
+            "name": "yunus",
+            "surname": "donmez",
+            "balance": 6290,
+            "e-mail": "ynsdnmz@gmail.com",
+            "tax-number": 1234567,
+            "password": "",
+            "login_log": [
+                "--Logged in at 2023-02-09 10:55:36.727827#",
+                "--Logged in at 2023-02-09 10:56:17.358375#",
+                "--Logged in at 2023-02-09 11:03:09.446064#",
+                "--Logged in at 2023-02-09 11:09:09.724074#",
+                "--Logged in at 2023-02-09 11:10:10.875689#",
+                "--Logged in at 2023-02-09 11:10:57.016296#",
+                "--Logged in at 2023-02-09 11:12:39.623388#",
+                "--Logged in at 2023-02-09 11:13:20.780319#",
+                "--Logged in at 2023-02-09 11:19:37.611787#",
+                "--Logged in at 2023-02-09 11:30:36.810151#",
+                "--Logged in at 2023-02-09 11:31:34.820639#",
+                "--Logged in at 2023-02-09 11:37:12.314157#",
+                "--Logged in at 2023-02-09 11:40:05.365216#",
+                "--Logged in at 2023-02-09 11:42:11.196371#",
+                "--Logged in at 2023-02-09 11:43:26.292257#",
+                "--Logged in at 2023-02-09 11:45:54.764948#",
+                "--Logged in at 2023-02-09 11:47:06.373638#",
+                "--Logged in at 2023-02-09 11:51:29.370213#",
+                "--Logged in at 2023-02-09 11:54:18.573476#",
+                "--Logged in at 2023-02-09 11:55:54.073351#",
+                "--Logged in at 2023-02-09 11:57:52.908929#",
+                "--Logged in at 2023-02-09 11:59:22.946940#",
+                "--Logged in at 2023-02-09 12:01:43.682456#",
+                "--Logged in at 2023-02-09 12:04:21.505442#",
+                "--Logged in at 2023-02-09 12:06:26.880221#",
+                "--Logged in at 2023-02-09 12:08:45.695439#",
+                "--Logged in at 2023-02-09 12:12:23.367439#",
+                "--Logged in at 2023-02-09 12:14:30.442416#",
+                "--Logged in at 2023-02-09 12:15:16.733964#",
+                "--Logged in at 2023-02-09 12:21:53.528740#",
+                "--Logged in at 2023-02-09 12:28:26.105744#",
+                "--Logged in at 2023-02-09 12:30:30.010707#",
+                "--Logged in at 2023-02-09 12:33:08.775648#",
+                "--Logged in at 2023-02-09 12:34:08.473421#",
+                "--Logged in at 2023-02-09 12:38:23.174180#",
+                "--Logged in at 2023-02-09 12:38:37.787944#"
+            ],
+            "money_activities": [
+                "--Inserted 1000 $ at 2023-02-09 11:03:46.577972#",
+                "--Inserted 500 $ at 2023-02-09 11:03:51.579538#",
+                "--Withrawed 5000 $ at 2023-02-09 11:04:17.045484#"
+            ],
+            "register_log": "Customer 100003 registered at 2023-02-09 09:05:59.517643"
         }
     ]
 }

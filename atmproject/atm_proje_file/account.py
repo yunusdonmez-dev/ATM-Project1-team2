@@ -36,28 +36,31 @@ class LoginPage(QMainWindow):
 
     def enter(self):
         global user,password
-        self.id = self.loginform.idnum_edit.text()
+        self.id = int(self.loginform.idnum_edit.text())-100000
         self.password = self.loginform.password_edit.text()
-        user = self.id
+        user = str(self.id)
         password = self.password
         fileloc = os.getcwd()
-        
+        print(user)
+        print(type(user))
+        print(self.id)
+        print(type(self.id))
         with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json") as f:
-            data = json.load(f)
-            users = data["customers"]
-            for self.i in users:
-                if str(self.i["id"]) == self.id:
-                    if self.i["password"] == self.password:
-                        self.hide()
-                        self.openaccountpage.show()
-                        self.login_log()
+            self.data = json.load(f)
+            self.users = self.data["customers"]
+        
+            if self.users[int(user)-1]["id"] == int(user)+100000:
+                if str(self.users[int(user)-1]["password"]) == str(password):
+                    self.hide()
+                    self.openaccountpage.show()
+                    self.login_log()
                         
-                        break
+                        
     def login_log(self):
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
             self.data = json.load(f)
             # self.users = self.data["customers"]
-            self.data["customers"][self.i["id"]-1]["login_log"] += f"Customer {user} logged in at {datetime.datetime.now()}-" 
+            self.data["customers"][int(user)-1]["login_log"].append(f"--Logged in at {datetime.datetime.now()}#")
                  
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
             json.dump(self.data , f, indent=4)                    
@@ -73,6 +76,13 @@ class AccountPage(QMainWindow):
         self.account_page_form.insert_button.clicked.connect(self.insert)
         self.account_page_form.withdraw_button.clicked.connect(self.withdraw)
         self.account_page_form.statement_button.clicked.connect(self.statement)
+        self.account_page_form.return_button.clicked.connect(self.go_login)
+    
+    
+    def go_login(self):
+        self.loginform = LoginPage()
+        self.close()
+        self.loginform.show()
 
     
          
@@ -111,9 +121,7 @@ class BalancePage(QMainWindow):
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
             self.data = json.load(f)
             self.users = self.data["customers"]
-            for self.i in self.users:
-                 if str(self.i["id"]) == user:
-                    self.checkbalance.balance_label.setNum(self.i["balance"])
+            self.checkbalance.balance_label.setNum(self.users[int(user)-1]["balance"])
 
     def donus(self):
         self.openaccountpage = AccountPage()
@@ -133,22 +141,20 @@ class InsertPage(LoginPage,QMainWindow):
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
             self.data = json.load(f)
             self.users = self.data["customers"]
-            for self.i in self.users:
-                print(self.i["name"])
-                if str(self.i["id"]) == user:
-                    self.insert_money.balance2_label.setNum(self.i["balance"])
-                    self.insert_money.enter2_button.clicked.connect(self.add_money)
-                    break 
-        
+            
+                
+            self.insert_money.balance2_label.setNum(self.users[int(user)-1]["balance"])
+            self.insert_money.enter2_button.clicked.connect(self.add_money)
+            
         
 
     def add_money(self):
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
             self.data = json.load(f)
             self.users = self.data["customers"]
-            self.data["customers"][self.i["id"]-1]["balance"] += int(self.insert_money.insert_edit.text())
-            self.insert_money.balance2_label.setNum(self.data["customers"][self.i["id"]-1]["balance"])
-            self.data["customers"][self.i["id"]-1]["money_activities"] += f"Customer {user} inserted {int(self.insert_money.insert_edit.text())} $ at {datetime.datetime.now()}-"     
+            self.data["customers"][int(user)-1]["balance"] += int(self.insert_money.insert_edit.text())
+            self.insert_money.balance2_label.setNum(self.data["customers"][int(user)-1]["balance"])
+            self.data["customers"][int(user)-1]["money_activities"].append(f"--Inserted {int(self.insert_money.insert_edit.text())} $ at {datetime.datetime.now()}#")     
         
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
             json.dump(self.data , f, indent=4)
@@ -163,7 +169,7 @@ class InsertPage(LoginPage,QMainWindow):
         self.openaccountpage.show()
     
 class WithdrawPage(LoginPage,QMainWindow):
-    from account import LoginPage
+    
 
     def __init__(self):
         super().__init__()
@@ -172,25 +178,23 @@ class WithdrawPage(LoginPage,QMainWindow):
         self.withdraw_money.return3_button.clicked.connect(self.donus)
 
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+
             self.data = json.load(f)
             self.users = self.data["customers"]
-            for self.i in self.users:
-                 if str(self.i["id"]) == user:
-                    self.withdraw_money.balance3_label.setNum(self.i["balance"])
-                    # self.withdraw_money.balance3_label.setNum(self.data["customers"][self.i["id"]-1]["balance"])
-                    self.withdraw_money.enter_button.clicked.connect(self.take_money)
-                    break
+            self.withdraw_money.balance3_label.setNum(self.data["customers"][int(user)-1]["balance"])
+            self.withdraw_money.enter_button.clicked.connect(self.take_money)
+                    
     def take_money(self):
         
-        if self.i["balance"]  >= int(self.withdraw_money.withdraw_edit.text()) :
+        if self.data["customers"][int(user)-1]["balance"]  >= int(self.withdraw_money.withdraw_edit.text()) :
             self.withdraw_money.messsage2_button.setText("")
             with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
                 self.data = json.load(f)
                 self.users = self.data["customers"]
-                self.data["customers"][self.i["id"]-1]["balance"] -= int(self.withdraw_money.withdraw_edit.text())
-                self.withdraw_money.balance3_label.setNum(self.data["customers"][self.i["id"]-1]["balance"]) 
+                self.data["customers"][int(user)-1]["balance"] -= int(self.withdraw_money.withdraw_edit.text())
+                self.withdraw_money.balance3_label.setNum(self.data["customers"][int(user)-1]["balance"]) 
 
-                self.data["customers"][self.i["id"]-1]["money_activities"] += f"Customer {user} withrawed {int(self.withdraw_money.withdraw_edit.text())} $ at {datetime.datetime.now()}-"  
+                self.data["customers"][int(user)-1]["money_activities"].append(f"--Withrawed {int(self.withdraw_money.withdraw_edit.text())} $ at {datetime.datetime.now()}#") 
                 with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
                     json.dump(self.data , f, indent=4)
                 
@@ -217,12 +221,20 @@ class StatementPage(LoginPage,QMainWindow):
         self.statement_user = Ui_statementScreen()
         self.statement_user.setupUi(self)
         self.statement_user.return4_button.clicked.connect(self.donus)
+        
+        
         with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
             self.data = json.load(f)
-            self.statement_user.logins_label.setText(self.data["customers"][int(user)-1]["login_log"])
+            a = ''
+            b = ''
+            for i in self.data["customers"][int(user)-1]["login_log"]:
+                a += f"{i} \n"
+            self.statement_user.logins_label.setText(a)
             self.statement_user.date_label.setText(self.data["customers"][int(user)-1]["register_log"])
-            self.statement_user.aktivites_label.setText(self.data["customers"][int(user)-1]["money_activities"])
-            self.statement_user.check_label.setText(str(self.data["customers"][int(user)-1]["balance"])+" $")
+            for i in self.data["customers"][int(user)-1]["money_activities"]:
+                b += f"{i} \n"
+            self.statement_user.aktivites_label.setText(b)
+            # self.statement_user.check_label.setText(str(self.data["customers"][int(user)-1]["balance"])+" $")
             
 
     def donus(self):
@@ -263,9 +275,9 @@ class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (Q
                         self.close()   
                         self.accountForm.show()   # simdi login de sartlari soracak eger dogruysa diger arayuzu burada gosterecektir.
             
-                    else :
-                        self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
-                        self.loginForm.labelErrorMessage.show()
+                else :
+                    self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
+                    self.loginForm.labelErrorMessage.show()
                 
         
     
@@ -283,27 +295,24 @@ class AccounAdminPage(QWidget):
         
     def write_json(self):
 
-        fileloc = os.getcwd()
-        
-
-        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json") as json_file:
+        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as json_file:
             data = json.load(json_file)
             temp = data["customers"]
             y = {
-            "id": len(temp)+1,
+            "id": len(temp)+100001,
             "name": self.accounderForm.lineEditName.text(),
             "surname":self.accounderForm.lineEditSurname.text(),
             "balance":int(self.accounderForm.lineEditBalans.text()),
             "e-mail" : self.accounderForm.lineEditEmail.text(),
             "tax-number" :int(self.accounderForm.lineEditTax.text()),
             "password" : self.accounderForm.lineEditPassword.text() ,
-            "login_log" : "",
-            "money_activities" : "",
-            "register_log" : f"Customer {len(temp)+1} registered at {datetime.datetime.now()}"           
+            "login_log" : [],
+            "money_activities" : [],
+            "register_log" : f"Customer {len(temp)+100001} registered at {datetime.datetime.now()}"           
             }
             temp.append(y)
 
-        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
             json.dump(data , f, indent=4)
                 
 
