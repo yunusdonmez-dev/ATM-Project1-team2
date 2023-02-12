@@ -28,14 +28,48 @@
             "id": 100003,
             "name": "yunus",
             "surname": "donmez",
-            "balance": 5311,
+            "balance": 5611,
             "e-mail": "ynsdnmz@gmail.com",
             "tax-number": 1234567,
             "password": "qwer",
+            "login_log": [
+                "--Logged in at 2023-02-09 19:56:33.862127#",
+                "--Logged in at 2023-02-09 19:57:50.123468#",
+                "--Logged in at 2023-02-09 21:03:42.281339#",
+                "--Logged in at 2023-02-09 21:17:01.764589#",
+                "--Logged in at 2023-02-09 21:22:56.126299#"
+            ],
+            "money_activities": [
+                "--Inserted 500 \u20ac at 2023-02-09 19:58:21.727863#",
+                "--Withrawed 500 $ at 2023-02-09 19:58:45.438976#",
+                "--Inserted 500 \u20ac at 2023-02-09 21:17:29.481599#",
+                "--Withrawed 200 $ at 2023-02-09 21:17:59.855331#"
+            ],
+            "register_log": "Customer 100003 registered at 2023-02-09 09:05:59.517643"
+        },
+        {
+            "id": 100004,
+            "name": "yunus",
+            "surname": "asdas",
+            "balance": 34534,
+            "e-mail": "fsdfsd",
+            "tax-number": 345345,
+            "password": "567896787",
             "login_log": [],
             "money_activities": [],
-            "register_log": "Customer 100003 registered at 2023-02-09 09:05:59.517643"
+            "register_log": "Customer 100004 registered at 2023-02-09 19:57:18.918474"
+        },
+        {
+            "id": 100005,
+            "name": "yunus",
+            "surname": "donmez",
+            "balance": 2000,
+            "e-mail": "ynsdnmz@gmail.com",
+            "tax-number": 52562535,
+            "password": "1234567",
+            "login_log": [],
+            "money_activities": [],
+            "register_log": "Customer 100005 registered at 2023-02-09 21:16:02.671883"
         }
-       
     ]
 }

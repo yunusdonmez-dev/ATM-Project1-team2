@@ -76,6 +76,7 @@ class Ui_loginScreen(object):
         self.password_edit.setGeometry(QtCore.QRect(220, 330, 241, 41))
         self.password_edit.setStyleSheet("background-color: rgb(153, 153, 153);")
         self.password_edit.setObjectName("password_edit")
+        self.password_edit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.id_label = QtWidgets.QLabel(self.centralwidget)
         self.id_label.setGeometry(QtCore.QRect(30, 240, 151, 41))
         self.id_label.setStyleSheet("background-color: rgb(179, 179, 179);")
