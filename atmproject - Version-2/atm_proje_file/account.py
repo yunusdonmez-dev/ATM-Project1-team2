@@ -12,10 +12,15 @@ from Ui_account import Ui_accountScreen
 from Ui_balance import Ui_balanceScreen 
 from Ui_insert import Ui_insertScreen
 from Ui_withdraw import Ui_withdrawScreen
-from Ui_statament import Ui_statementScreen
+from Ui_Change_customer_datails import Ui_MainWindow
+from Ui_transfer import Ui_transfer
+from Ui_admin_choice import Ui_MainWindow
+from Ui_See_bank_details import Ui_MainWindow
+
 from Ui_login import Ui_loginScreen
 from ui_loginAdmin import Ui_loginAdmin   # for admin
 from ui_accountAdmin import Ui_accountAdmin # for admin
+from Ui_statement import Ui_statementScreen
 import datetime
 import time
 
@@ -92,7 +97,18 @@ class AccountPage(QMainWindow):
         self.account_page_form.withdraw_button.clicked.connect(self.withdraw)
         self.account_page_form.statement_button.clicked.connect(self.statement)
         self.account_page_form.return_button.clicked.connect(self.go_login)
-    
+        self.account_page_form.btn_edit_info.clicked.connect(self.edit_info)
+        self.account_page_form.insert_button_2.clicked.connect(self.transfer)
+
+    def transfer(self):
+        self.transferform = Transferpage()
+        self.close()
+        self.transferform.show()
+        
+    def edit_info(self):
+        self.editform = Editpage()
+        self.close()
+        self.editform.show()
     
     def go_login(self):
         self.loginform = LoginPage()
@@ -123,8 +139,37 @@ class AccountPage(QMainWindow):
         self.open_statement_page = StatementPage()
         self.close()
         self.open_statement_page.show()
-    
 
+class Transferpage(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.transfer_money = Ui_transfer()
+        self.transfer_money.setupUi(self)
+        self.transfer_money.return3_button.clicked.connect(self.donus)
+        self.transfer_money.lbl_error_credit.hide()
+        self.transfer_money.lbl_error_customerid.hide()
+        self.transfer_money.lbl_error_limit.hide()
+        self.transfer_money.lbl_error_valid_amount.hide()
+        self.transfer_money.lbl_succesfull.hide()
+
+    def donus(self):
+        self.openaccountpage = AccountPage()
+        self.close()
+        self.openaccountpage.show()
+
+    
+class Editpage(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.editinfo = Ui_MainWindow()
+        self.editinfo.setupUi(self)
+        self.editinfo.return2_button.clicked.connect(self.donus)
+
+    def donus(self):
+        self.openaccountpage = AccountPage()
+        self.close()
+        self.openaccountpage.show()
 
 class BalancePage(QMainWindow):
     def __init__(self):
@@ -248,20 +293,21 @@ class StatementPage(LoginPage,QMainWindow):
         self.statement_user = Ui_statementScreen()
         self.statement_user.setupUi(self)
         self.statement_user.return4_button.clicked.connect(self.donus)
+        self.statement_user.textBrowser.hide()
+        self.statement_user.textBrowser_2.hide()
         
-        
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
-            self.data = json.load(f)
-            a = ''
-            b = ''
-            for i in self.data["customers"][int(user)-1]["login_log"]:
-                a += f"{i} \n"
-            self.statement_user.logins_label.setText(a)
-            self.statement_user.date_label.setText(self.data["customers"][int(user)-1]["register_log"])
-            for i in self.data["customers"][int(user)-1]["money_activities"]:
-                b += f"{i} \n"
-            self.statement_user.aktivites_label.setText(b)
-            # self.statement_user.check_label.setText(str(self.data["customers"][int(user)-1]["balance"])+" $")
+        # with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        #     self.data = json.load(f)
+        #     a = ''
+        #     b = ''
+        #     for i in self.data["customers"][int(user)-1]["login_log"]:
+        #         a += f"{i} \n"
+        #     self.statement_user.logins_label.setText(a)
+        #     self.statement_user.date_label.setText(self.data["customers"][int(user)-1]["register_log"])
+        #     for i in self.data["customers"][int(user)-1]["money_activities"]:
+        #         b += f"{i} \n"
+        #     self.statement_user.aktivites_label.setText(b)
+        #     # self.statement_user.check_label.setText(str(self.data["customers"][int(user)-1]["balance"])+" $")
             
 
     def donus(self):
@@ -279,9 +325,16 @@ class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (Q
         self.loginForm= Ui_loginAdmin()      #bu ve alttaki kod ile nesne yaratip sonra ana modulunu(self ile) cagiriyoruz.
         self.loginForm.setupUi(self)
         self.loginForm.labelErrorMessage.hide()
+        self.loginForm.pushButtonLogin.clicked.connect(self.choice_menu)
         self.loginForm.pushButtonLogin.clicked.connect(self.AccountAdminOpen) # login tiklanirsa AccountOpen modulunu calistiracak.
         self.loginForm.pushButtonLogin2.clicked.connect(self.go_customer_login)
-    
+
+    def choice_menu(self):
+        self.choiceform = Choicepage()
+        self.close()
+        self.choiceform.show()
+
+
     def go_customer_login(self):
         self.loginform = LoginPage()
         self.close()
@@ -313,8 +366,11 @@ class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (Q
                     self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
                     self.loginForm.labelErrorMessage.show()
                 
-        
-    
+class Choicepage(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.choiceform = 
+
 class AccounAdminPage(QWidget):  
     fileloc = os.getcwd()
     print(fileloc)
