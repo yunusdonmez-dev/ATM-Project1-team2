@@ -12,9 +12,9 @@ from Ui_account import Ui_accountScreen
 from Ui_balance import Ui_balanceScreen 
 from Ui_insert import Ui_insertScreen
 from Ui_withdraw import Ui_withdrawScreen
-from Ui_Change_customer_datails import Ui_MainWindow
+from Ui_Change_customer_datails import Ui_MainWindow2
 from Ui_transfer import Ui_transfer
-from Ui_admin_choice import Ui_MainWindow
+from Ui_admin_choice import Ui_MainWindow1
 from Ui_See_bank_details import Ui_MainWindow
 
 from Ui_login import Ui_loginScreen
@@ -326,7 +326,7 @@ class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (Q
         self.loginForm.setupUi(self)
         self.loginForm.labelErrorMessage.hide()
         self.loginForm.pushButtonLogin.clicked.connect(self.choice_menu)
-        self.loginForm.pushButtonLogin.clicked.connect(self.AccountAdminOpen) # login tiklanirsa AccountOpen modulunu calistiracak.
+        # self.loginForm.pushButtonLogin.clicked.connect(self.AccountAdminOpen) # login tiklanirsa AccountOpen modulunu calistiracak.
         self.loginForm.pushButtonLogin2.clicked.connect(self.go_customer_login)
 
     def choice_menu(self):
@@ -343,44 +343,107 @@ class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (Q
         
      
    
-    def AccountAdminOpen(self):
+    # def AccountAdminOpen(self):
 
-        user_name = self.loginForm.lineEditUser.text()
-        user_pass = self.loginForm.lineEditPassword.text()  
+    #     user_name = self.loginForm.lineEditUser.text()
+    #     user_pass = self.loginForm.lineEditPassword.text()  
         
-        fileloc = os.getcwd()
-        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data.json") as f:
-            data = json.load(f)
-            users = data["bank"]
+        # fileloc = os.getcwd()
+        # with open(f"{fileloc}\\atmproject\\atm_proje_file\\data.json") as f:
+        #     data = json.load(f)
+        #     users = data["bank"]
             
-            for i in users:
-                if i["name"] == user_name:
-                    if i["password"] == user_pass:
-                        self.hide()
-                        # self.openaccountpage.show()   # bu gecici olarak yazilan bir kod. daha sonra data dan alacagiz.
-                        self.accountForm= AccounAdminPage()
-                        self.close()   
-                        self.accountForm.show()   # simdi login de sartlari soracak eger dogruysa diger arayuzu burada gosterecektir.
+        #     for i in users:
+        #         if i["name"] == user_name:
+        #             if i["password"] == user_pass:
+        #                 self.hide()
+        #                 # self.openaccountpage.show()   # bu gecici olarak yazilan bir kod. daha sonra data dan alacagiz.
+        #                 self.accountForm= AccounAdminPage()
+        #                 self.close()   
+        #                 self.accountForm.show()   # simdi login de sartlari soracak eger dogruysa diger arayuzu burada gosterecektir.
             
-                else :
-                    self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
-                    self.loginForm.labelErrorMessage.show()
+        #         else :
+        #             self.loginForm.labelErrorMessage.setText(F" {user_name} User Name or  User Password is incorrect! Try Again ")
+        #             self.loginForm.labelErrorMessage.show()
                 
-class Choicepage(QWidget):
+
+
+
+
+class Choicepage(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.choiceform = 
+        self.choiceform = Ui_MainWindow1()
+        self.choiceform.setupUi(self)
+        self.choiceform.btn_activities.clicked.connect(self.activities)
+        self.choiceform.btn_change.clicked.connect(self.change)
+        self.choiceform.btn_register.clicked.connect(self.register)
+        self.choiceform.return2_button.clicked.connect(self.return_login)
+
+
+    def return_login(self):
+        self.loginform = LoginAdminPage()
+        self.close()
+        self.loginform.show()
+
+    def register(self):
+        self.accountForm= AccounAdminPage()
+        self.close()   
+        self.accountForm.show()
+
+    def change(self):
+        self.changepage = Changepage()
+        self.close()
+        self.changepage.show()
+
+    
+    def activities(self):
+        self.activitypage = Activitypage()
+        self.close()
+        self.activitypage.show()
+
+
+from Ui_Change_customer_datails import Ui_MainWindow2
+
+
+class Changepage(QMainWindow):
+    def __init__(self) -> None:
+        super().__init__()
+
+        self.changeform = Ui_MainWindow2()
+        self.changeform.setupUi(self)
+        self.changeform.return2_button.clicked.connect(self.return_admin_choice)
+    
+    def return_admin_choice(self):
+        self.choiceform = Choicepage()
+        self.close()
+        self.choiceform.show()
+    
+
+
+
+class Activitypage(QMainWindow):
+    def __init__(self) -> None:
+        super().__init__()
+        self.activityform = Ui_MainWindow()
+        self.activityform.setupUi(self)
+        self.activityform.return2_button.clicked.connect(self.returnLoginAdmin)
+
+    def returnLoginAdmin(self):
+        self.choiceform = Choicepage()
+        self.close()
+        self.choiceform.show()
+    
 
 class AccounAdminPage(QWidget):  
-    fileloc = os.getcwd()
-    print(fileloc)
+    
     def __init__(self) -> None:
         super().__init__()
         
         # ornek ve ana modul calistiriliyor
         self.accounderForm= Ui_accountAdmin()
         self.accounderForm.setupUi(self)
-        self.accounderForm.pushButtonReturn.clicked.connect(self.returnLoginAdmin)
+        self.accounderForm.pushButtonReturn.clicked.connect(self.return_admin_choice)
         self.accounderForm.pushButtonSuffix.clicked.connect(self.write_json)
         # self.accounderForm.pushButtonSuffix.clicked.connect(self.accoundCread)
         self.accounderForm.label.hide()
@@ -438,7 +501,7 @@ class AccounAdminPage(QWidget):
             self.accounderForm.label.show()
 
 
-    def returnLoginAdmin(self):
-        self.loginReturnForm= LoginAdminPage()
-        self.hide()
-        self.loginReturnForm.show()
+    def return_admin_choice(self):
+        self.choiceform = Choicepage()
+        self.close()
+        self.choiceform.show()
