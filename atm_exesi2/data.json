@@ -1,0 +1,28 @@
+{
+    "bank": [
+        {
+            "id": "1",
+            "name": "Yunus",
+            "password": "Zeyneb"
+            
+        },
+        {
+            "id": "1",
+            "name": "Yakup",
+            "password": "1234"
+            
+        },
+        {
+            "id": "1",
+            "name": "Tuba",
+            "password": "azra"
+            
+        },
+        {
+            "id": "2",
+            "name": "ali",
+            "password": "naci"
+            
+        }
+    ]
+}

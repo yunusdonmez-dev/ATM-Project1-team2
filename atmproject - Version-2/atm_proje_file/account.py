@@ -32,7 +32,7 @@ class LoginPage(QMainWindow):
     '''
     login page of the app where user can enter 
     '''
-
+    
     
     def __init__(self):
         super().__init__()
@@ -60,8 +60,9 @@ class LoginPage(QMainWindow):
             user = str(self.id)
             password = self.password
             fileloc = os.getcwd()
-            
-            with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json") as f:
+            __location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
+            with open(os.path.join(__location__, 'data2.json')) as f:
                 self.data = json.load(f)
                 self.users = self.data["customers"]
             
@@ -77,12 +78,14 @@ class LoginPage(QMainWindow):
                               
                         
     def login_log(self):
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        __location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
+        with open(os.path.join(__location__, 'data2.json')) as f:
             self.data = json.load(f)
             # self.users = self.data["customers"]
             self.data["customers"][int(user)-1]["login_log"].append(f"--Logged in at {datetime.datetime.now()}#")
                  
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+        with open(os.path.join(__location__, 'data2.json','w')) as f:
             json.dump(self.data , f, indent=4)                    
         
                           
