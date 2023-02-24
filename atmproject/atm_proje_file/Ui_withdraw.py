@@ -9,6 +9,8 @@
 
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
+__location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
 class Ui_withdrawScreen(object):
@@ -23,8 +25,8 @@ class Ui_withdrawScreen(object):
         self.return3_button.setStyleSheet("background-color: rgb(254, 204, 102);")
         icon = QtGui.QIcon()
         filelog = os.getcwd()
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\reply.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\reply.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "reply.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "reply.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.return3_button.setIcon(icon)
         self.return3_button.setIconSize(QtCore.QSize(50, 50))
         self.return3_button.setObjectName("return3_button")
@@ -38,7 +40,7 @@ class Ui_withdrawScreen(object):
         self.exit_button.setStyleSheet("background-color: rgb(127, 127, 127);")
         self.exit_button.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük indir (4) .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük indir (4) .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.exit_button.setIcon(icon1)
         self.exit_button.setIconSize(QtCore.QSize(100, 50))
         self.exit_button.setObjectName("exit_button")
@@ -58,8 +60,8 @@ class Ui_withdrawScreen(object):
         self.enter_button.setGeometry(QtCore.QRect(420, 90, 113, 32))
         self.enter_button.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük images (1) .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük images (1) .png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon2.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük images (1) .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük images (1) .png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.enter_button.setIcon(icon2)
         self.enter_button.setIconSize(QtCore.QSize(100, 70))
         self.enter_button.setObjectName("enter_button")
@@ -74,7 +76,7 @@ class Ui_withdrawScreen(object):
         self.messsage2_button.setStyleSheet("background-color: rgb(204, 204, 204);")
         self.messsage2_button.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\atm-machine.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(os.path.join(__location__, "atm-machine.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.messsage2_button.setIcon(icon3)
         self.messsage2_button.setIconSize(QtCore.QSize(100, 100))
         self.messsage2_button.setObjectName("messsage2_button")

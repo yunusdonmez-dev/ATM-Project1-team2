@@ -9,6 +9,8 @@
 
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
+__location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
 class Ui_statementScreen(object):
@@ -28,8 +30,8 @@ class Ui_statementScreen(object):
         self.return4_button.setStyleSheet("background-color: rgb(254, 204, 102);")
         icon = QtGui.QIcon()
         filelog = os.getcwd()
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\reply.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\reply.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "reply.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "reply.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.return4_button.setIcon(icon)
         self.return4_button.setIconSize(QtCore.QSize(50, 50))
         self.return4_button.setObjectName("return4_button")

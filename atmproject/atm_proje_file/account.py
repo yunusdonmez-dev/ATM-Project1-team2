@@ -21,7 +21,8 @@ import time
 
 import json
 import os
-
+__location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 class LoginPage(QMainWindow):
     '''
@@ -56,7 +57,7 @@ class LoginPage(QMainWindow):
             password = self.password
             fileloc = os.getcwd()
             
-            with open(f"{fileloc}\\atmproject\\atm_proje_file\\data2.json") as f:
+            with open(os.path.join(__location__, 'data2.json')) as f:
                 self.data = json.load(f)
                 self.users = self.data["customers"]
             
@@ -72,12 +73,12 @@ class LoginPage(QMainWindow):
                               
                         
     def login_log(self):
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        with open(os.path.join(__location__, 'data2.json')) as f:
             self.data = json.load(f)
             # self.users = self.data["customers"]
             self.data["customers"][int(user)-1]["login_log"].append(f"--Logged in at {datetime.datetime.now()}#")
                  
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+        with open(os.path.join(__location__, 'data2.json'),'w') as f:
             json.dump(self.data , f, indent=4)                    
         
                           
@@ -133,7 +134,7 @@ class BalancePage(QMainWindow):
         self.checkbalance = Ui_balanceScreen()
         self.checkbalance.setupUi(self)
         self.checkbalance.return1_button.clicked.connect(self.donus)
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        with open(os.path.join(__location__, 'data2.json')) as f:
             self.data = json.load(f)
             self.users = self.data["customers"]
             self.checkbalance.balance_label.setText(str(self.users[int(user)-1]["balance"]) + " €")
@@ -153,7 +154,7 @@ class InsertPage(LoginPage,QMainWindow):
         self.insert_money.balance3_label.hide()
         
     
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        with open(os.path.join(__location__, 'data2.json')) as f:
             self.data = json.load(f)
             self.users = self.data["customers"]
             
@@ -167,7 +168,7 @@ class InsertPage(LoginPage,QMainWindow):
 
         try :
             assert (int(self.insert_money.insert_edit.text())/1).is_integer()
-            with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+            with open(os.path.join(__location__, 'data2.json')) as f:
                 self.data = json.load(f)
                 self.users = self.data["customers"]
                 self.data["customers"][int(user)-1]["balance"] += int(self.insert_money.insert_edit.text())
@@ -175,7 +176,7 @@ class InsertPage(LoginPage,QMainWindow):
                 self.data["customers"][int(user)-1]["money_activities"].append(f"--Inserted {int(self.insert_money.insert_edit.text())} € at {datetime.datetime.now()}#")     
         
         
-            with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+            with open(os.path.join(__location__, 'data2.json'),'w') as f:
                 json.dump(self.data , f, indent=4)
             self.insert_money.balance3_label.show()
             self.insert_money.balance3_label.setText("Inserted succesfully ")
@@ -200,7 +201,7 @@ class WithdrawPage(LoginPage,QMainWindow):
         self.withdraw_money.setupUi(self)
         self.withdraw_money.return3_button.clicked.connect(self.donus)
 
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        with open(os.path.join(__location__, 'data2.json')) as f:
 
             self.data = json.load(f)
             self.users = self.data["customers"]
@@ -214,14 +215,14 @@ class WithdrawPage(LoginPage,QMainWindow):
 
             if self.data["customers"][int(user)-1]["balance"]  >= int(self.withdraw_money.withdraw_edit.text()) :
                 self.withdraw_money.messsage2_button.setText("")
-                with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+                with open(os.path.join(__location__, 'data2.json')) as f:
                     self.data = json.load(f)
                     self.users = self.data["customers"]
                     self.data["customers"][int(user)-1]["balance"] -= int(self.withdraw_money.withdraw_edit.text())
                     self.withdraw_money.balance3_label.setText(str(self.users[int(user)-1]["balance"]) + " €") 
 
                     self.data["customers"][int(user)-1]["money_activities"].append(f"--Withrawed {int(self.withdraw_money.withdraw_edit.text())} $ at {datetime.datetime.now()}#") 
-                    with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+                    with open(os.path.join(__location__, 'data2.json'),'w') as f:
                         json.dump(self.data , f, indent=4)
                 self.withdraw_money.messsage2_button.setText("Succesfully withdrawed")
                 
@@ -250,7 +251,7 @@ class StatementPage(LoginPage,QMainWindow):
         self.statement_user.return4_button.clicked.connect(self.donus)
         
         
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        with open(os.path.join(__location__, 'data2.json')) as f:
             self.data = json.load(f)
             a = ''
             b = ''
@@ -296,7 +297,7 @@ class LoginAdminPage(QWidget):  # klas olusturdugumuzda bunu QT designer daki (Q
         user_pass = self.loginForm.lineEditPassword.text()  
         
         fileloc = os.getcwd()
-        with open(f"{fileloc}\\atmproject\\atm_proje_file\\data.json") as f:
+        with open(os.path.join(__location__, 'data.json')) as f:
             data = json.load(f)
             users = data["bank"]
             
@@ -331,7 +332,7 @@ class AccounAdminPage(QWidget):
 
 
     def accoundCread(self):
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as f:
+        with open(os.path.join(__location__, 'data2.json')) as f:
             data = json.load(f)
             heades = data["customers"]
             row_index = 0
@@ -351,7 +352,7 @@ class AccounAdminPage(QWidget):
 
     def write_json(self):
         
-        with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json") as json_file:
+        with open(os.path.join(__location__, 'data2.json')) as json_file:
             data = json.load(json_file)
             temp = data["customers"]
             y = {
@@ -369,7 +370,7 @@ class AccounAdminPage(QWidget):
             temp.append(y)
         try:
             assert len(self.accounderForm.lineEditPassword.text())>=6
-            with open(f"{os.getcwd()}\\atmproject\\atm_proje_file\\data2.json",'w') as f:
+            with open(os.path.join(__location__, 'data2.json'),'w') as f:
                 json.dump(data , f, indent=4)
             
             self.accounderForm.label.setText("Account is created succesfully !")

@@ -10,6 +10,8 @@
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+__location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 class Ui_loginScreen(object):
     def setupUi(self, loginScreen):
@@ -28,8 +30,8 @@ class Ui_loginScreen(object):
         icon = QtGui.QIcon()
         filelog = os.getcwd()
         print(filelog)
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\account.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\account.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "account.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "account.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.login_button.setIcon(icon)
         self.login_button.setIconSize(QtCore.QSize(150, 100))
         self.login_button.setAutoDefault(False)
@@ -41,8 +43,8 @@ class Ui_loginScreen(object):
         self.clear_button.setStyleSheet("background-color: rgb(204, 204, 204);")
         self.clear_button.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük indir (2) .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük indir (2) .png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük indir (2) .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük indir (2) .png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.clear_button.setIcon(icon1)
         self.clear_button.setIconSize(QtCore.QSize(100, 85))
         self.clear_button.setObjectName("clear_button")
@@ -52,9 +54,9 @@ class Ui_loginScreen(object):
         self.enter_button.setText("")
         icon2 = QtGui.QIcon()
         icon5 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük images (1) .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon5.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük download .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük images (1) .png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon2.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük images (1) .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük download .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük images (1) .png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         
         self.enter_button.setIcon(icon2)
         self.enter_button.setIconSize(QtCore.QSize(100, 100))
@@ -63,8 +65,8 @@ class Ui_loginScreen(object):
         self.exit_button_2.setGeometry(QtCore.QRect(490, 340, 101, 41))
         self.exit_button_2.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük indir (4) .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon3.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük indir (4) .png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon3.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük indir (4) .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük indir (4) .png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.exit_button_2.setIcon(icon3)
         self.exit_button_2.setIconSize(QtCore.QSize(150, 150))
         self.exit_button_2.setObjectName("exit_button_2")

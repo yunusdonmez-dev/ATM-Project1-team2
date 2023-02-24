@@ -16,7 +16,7 @@
             "id": 100002,
             "name": "mehmet",
             "surname": "kaya",
-            "balance": 14474,
+            "balance": 14462,
             "e-mail": "mmtky@gmail.com",
             "tax-number": 984656,
             "password": "123",
@@ -36,14 +36,16 @@
                 "--Logged in at 2023-02-23 22:09:31.459073#",
                 "--Logged in at 2023-02-23 22:15:26.650025#",
                 "--Logged in at 2023-02-23 22:18:37.559654#",
-                "--Logged in at 2023-02-23 23:31:50.167466#"
+                "--Logged in at 2023-02-23 23:31:50.167466#",
+                "--Logged in at 2023-02-24 09:08:54.185966#"
             ],
             "money_activities": [
                 "--Inserted 10 \u20ac at 2023-02-23 15:29:56.759377#",
                 "--Inserted 10 \u20ac at 2023-02-23 15:29:57.922522#",
                 "--Inserted 10 \u20ac at 2023-02-23 15:29:58.518165#",
                 "--Inserted 10 \u20ac at 2023-02-23 15:29:58.910960#",
-                "--Inserted 5050 \u20ac at 2023-02-23 18:45:25.050886#"
+                "--Inserted 5050 \u20ac at 2023-02-23 18:45:25.050886#",
+                "--Withrawed 12 $ at 2023-02-24 09:09:03.280881#"
             ],
             "register_log": "Customer 11 registered at 2023-02-08 22:24:10.930721"
         },

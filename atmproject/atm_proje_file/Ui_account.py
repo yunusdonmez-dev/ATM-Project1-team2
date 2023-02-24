@@ -9,6 +9,8 @@
 
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
+__location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
 class Ui_accountScreen(object):
@@ -25,7 +27,7 @@ class Ui_accountScreen(object):
         self.pushButton_8.setText("")
         icon = QtGui.QIcon()
         filelog = os.getcwd()
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\money.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "money.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_8.setIcon(icon)
         self.pushButton_8.setIconSize(QtCore.QSize(50, 100))
         self.pushButton_8.setObjectName("pushButton_8")
@@ -36,7 +38,7 @@ class Ui_accountScreen(object):
 "font: 14pt \".AppleSystemUIFont\";")
         self.pushButton_7.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\money-withdrawal.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(os.path.join(__location__, "money-withdrawal.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_7.setIcon(icon1)
         self.pushButton_7.setIconSize(QtCore.QSize(50, 100))
         self.pushButton_7.setObjectName("pushButton_7")
@@ -44,7 +46,7 @@ class Ui_accountScreen(object):
         self.return_button.setGeometry(QtCore.QRect(170, 330, 181, 71))
         self.return_button.setStyleSheet("background-color: rgb(64, 128, 2);")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\reply.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(os.path.join(__location__, "reply.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.return_button.setIcon(icon2)
         self.return_button.setIconSize(QtCore.QSize(70, 70))
         self.return_button.setObjectName("return_button")
@@ -58,7 +60,7 @@ class Ui_accountScreen(object):
         self.pushButton_2.setStyleSheet("background-color: rgb(230, 230, 230);")
         self.pushButton_2.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\transaction.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(os.path.join(__location__, "transaction.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_2.setIcon(icon3)
         self.pushButton_2.setIconSize(QtCore.QSize(70, 70))
         self.pushButton_2.setObjectName("pushButton_2")
@@ -67,7 +69,7 @@ class Ui_accountScreen(object):
         self.pushButton_3.setStyleSheet("background-color: rgb(230, 230, 230);")
         self.pushButton_3.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\debit-card.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(os.path.join(__location__, "debit-card.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_3.setIcon(icon4)
         self.pushButton_3.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_3.setObjectName("pushButton_3")

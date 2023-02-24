@@ -9,6 +9,8 @@
 
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
+__location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
 class Ui_insertScreen(object):
@@ -23,8 +25,8 @@ class Ui_insertScreen(object):
         self.return2_button.setStyleSheet("background-color: rgb(254, 204, 102);")
         icon = QtGui.QIcon()
         filelog = os.getcwd()
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\reply.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\reply.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "reply.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(os.path.join(__location__, "reply.png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.return2_button.setIcon(icon)
         self.return2_button.setIconSize(QtCore.QSize(50, 50))
         self.return2_button.setObjectName("return2_button")
@@ -38,8 +40,8 @@ class Ui_insertScreen(object):
         self.clear2_button.setGeometry(QtCore.QRect(420, 30, 113, 41))
         self.clear2_button.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük indir (2) .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük indir (2) .png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük indir (2) .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük indir (2) .png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.clear2_button.setIcon(icon1)
         self.clear2_button.setIconSize(QtCore.QSize(90, 70))
         self.clear2_button.setObjectName("clear2_button")
@@ -48,8 +50,8 @@ class Ui_insertScreen(object):
         self.enter2_button.setStyleSheet("background-color: rgb(127, 127, 127);")
         self.enter2_button.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük images (1) .png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\Küçük images (1) .png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon2.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük images (1) .png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(os.path.join(__location__, "Küçük images (1) .png")), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.enter2_button.setIcon(icon2)
         self.enter2_button.setIconSize(QtCore.QSize(100, 50))
         self.enter2_button.setObjectName("enter2_button")
@@ -84,7 +86,7 @@ class Ui_insertScreen(object):
         self.mesaj_button.setStyleSheet("background-color: rgb(204, 204, 204);")
         self.mesaj_button.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(f"{filelog}\\atmproject\\atm_proje_file\\icns\\money.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(os.path.join(__location__, "money.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mesaj_button.setIcon(icon3)
         self.mesaj_button.setIconSize(QtCore.QSize(100, 100))
         self.mesaj_button.setObjectName("mesaj_button")
